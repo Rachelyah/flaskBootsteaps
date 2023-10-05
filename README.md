@@ -39,12 +39,34 @@ def feature():
 ```
 
 ## Jinja
-### Template Inheritance樣板繼承
-- 可以寫一個base.html基本頁面，用繼承的方式簡化步驟
+### Template Inheritance樣板繼承(父與子)
+- 可以寫一個base.jinja.html基本頁面，用繼承的方式簡化步驟
 - 父類別的內容無條件讓子繼承，且一個父可以給很多給子繼承
 
 ### 父parent
-![Alt text](image.png)
-其中的
+- 設定一個base.jinja.html頁面，其他頁面我都可以用語法讓他繼承，就不用每個html都做一次一樣的設定
+
+!![Alt text](<README images/image-5.png>)
 
 ### 子child
+- 在其他的子頁面，我只要寫這樣，就代表他繼承所有base.jinja.html頁面內容
+
+```
+{% extends "base.jinja.html" %}
+```
+
+
+#### 如果有例外怎麼辦？(我一頁是首頁、一頁是特色，有部分內容需要提供給)
+- 在base.jinja.html的頁面，我可以設定哪邊是例外區，可以給各個頁面自己設定內容
+
+!![Alt text](<README images/image-4.png>)
+
+- 語法(我開了title、content自訂頁面)：
+
+!![Alt text](<README images/image-3.png>)
+
+```
+{%block title%}特色{%endblock%}
+{%block content%}<h1>大家好這是特色頁</h1>{%endblock%}
+```
+- 如果要加入超連結，也是統一在base的頁面設定
