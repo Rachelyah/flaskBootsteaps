@@ -1,28 +1,28 @@
-{% extends "base.jinja.html" %}
-{%block title%}首頁{%endblock%}
-
 <!DOCTYPE html>
 <html lang="zh-hant">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.css')}}">
     <style>
-    .main{
-        background-color: cadetblue;
-    }
+        .main {
+            background-color: cadetblue;
+        }
     </style>
-
-    <title>首頁</title>
+<!---透過jinja語法設定block，代表此區內容我可以讓小孩子自行修改-->>
+    <title>{%block title%}{%endblock%}</title> 
 </head>
+
 <body>
     <div class="container main">
         <!--導覽列-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">台北市</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -39,4 +39,5 @@
     </div>
     <script src="{{url_for('static', filename='js/bootstrap.js')}}"></script>
 </body>
+
 </html>

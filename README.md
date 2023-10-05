@@ -22,5 +22,29 @@
 - 到網頁的「開發者人員工具」點選「切換裝置工具列」可以調整各裝置手機平板的模擬畫面
 - 不要改bootstrap的css，要的話就在html裡面用style包起來改
 
+### 做不同的分頁(feature頁面)
+- 在templates放上新的html頁面
+- 到py檔裡面用app註冊新的頁面名稱，並回傳到render templates
+```
+@app.route("/feature")
+def feature():
+    return render_template('feature.jinja.html')
+```
 
+- 把index的語法複製到feature頁面，修改document叫做特色
+- 在兩個html頁面裡面的超連結，用Jinja的語法放入連結設定
+```
+ <a class="nav-link active" aria-current="page" href="{{url_for('index')}}">首頁</a>
+<a class="nav-link" href="{{url_for('feature')}}">特色</a>
+```
 
+## Jinja
+### Template Inheritance樣板繼承
+- 可以寫一個base.html基本頁面，用繼承的方式簡化步驟
+- 父類別的內容無條件讓子繼承，且一個父可以給很多給子繼承
+
+### 父parent
+![Alt text](image.png)
+其中的
+
+### 子child
