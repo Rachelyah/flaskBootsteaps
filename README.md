@@ -39,6 +39,7 @@ def feature():
 ```
 
 ## Jinja
+[Jinja說明書](https://jinja.palletsprojects.com/en/3.1.x/templates/#for)
 ### Template Inheritance樣板繼承(父與子)
 - 可以寫一個base.jinja.html基本頁面，用繼承的方式簡化步驟
 - 父類別的內容無條件讓子繼承，且一個父可以給很多給子繼承
