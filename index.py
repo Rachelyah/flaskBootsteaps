@@ -5,7 +5,8 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return render_template('index.jinja.html')
+    names = ['喵喵', '咪咪', '饅頭', '郵局咪']
+    return render_template('index.jinja.html', n = names)
 
 @app.route("/feature")
 def feature():

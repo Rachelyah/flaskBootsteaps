@@ -70,3 +70,27 @@ def feature():
 {%block content%}<h1>大家好這是特色頁</h1>{%endblock%}
 ```
 - 如果要加入超連結，也是統一在base的頁面設定
+
+### 透過py檔傳入字串給html
+- 在py檔針對要傳入的網頁function(def)中間設定list字串，並透過names變數儲存
+- 在回傳值得最後面寫上n(引數)=names(呼叫變數names)
+- 回到對應的html頁面，在content或其他設定文字的內容裡寫上{{n}}
+- {{n}}＞代表Jinja語法的print
+- 未來如果可以把資料庫的資料透過py傳入，就可以整合所有學的東西(讚)
+```
+@app.route("/")
+def index():
+    names = ['喵喵', '咪咪', '饅頭', '郵局咪']
+    return render_template('index.jinja.html', n = names)
+```
+
+### 將py傳入的字串，透過jinja轉為list
+- 一樣要寫在內容裡，透過for迴圈把n變數中的item取出
+
+```
+<ul>
+    {% for item in n %}
+    <li>{{ item }}</li>
+    {%endfor%}
+</ul>
+```
